@@ -1,24 +1,29 @@
-import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/how-it-works', label: 'How it Works' },
-  { to: '/pricing', label: 'Pricing' },
-  { to: '/contact', label: 'Contact' },
-]
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/how-it-works", label: "How it Works" },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/contact", label: "Contact" },
+];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-  const location = useLocation()
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl text-brand-600">
-            <span className="w-9 h-9 rounded-lg bg-brand-500 flex items-center justify-center text-white text-sm">RMC</span>
+          <Link
+            to="/"
+            className="flex items-center gap-2 font-display font-bold text-xl text-brand-600"
+          >
+            <span className="w-9 h-9 rounded-lg bg-brand-500 flex items-center justify-center text-white text-sm">
+              RMC
+            </span>
             Review My Cafe
           </Link>
 
@@ -27,8 +32,10 @@ export default function Navbar() {
               <Link
                 key={to}
                 to={to}
-                className={`text-sm font-medium transition-colors ${
-                  location.pathname === to ? 'text-brand-600' : 'text-gray-600 hover:text-brand-600'
+                className={`text-sm font-medium transition-all ${
+                  location.pathname === to
+                    ? "text-brand-600 font-bold"
+                    : "text-gray-600 hover:text-brand-600 hover:font-bold"
                 }`}
               >
                 {label}
@@ -48,11 +55,26 @@ export default function Navbar() {
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {open ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -66,7 +88,9 @@ export default function Navbar() {
                   key={to}
                   to={to}
                   className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                    location.pathname === to ? 'bg-brand-50 text-brand-600' : 'text-gray-600 hover:bg-gray-50'
+                    location.pathname === to
+                      ? "bg-brand-50 text-brand-600"
+                      : "text-gray-600 hover:bg-gray-50"
                   }`}
                   onClick={() => setOpen(false)}
                 >
@@ -85,5 +109,5 @@ export default function Navbar() {
         )}
       </nav>
     </header>
-  )
+  );
 }
