@@ -1,11 +1,11 @@
-import { Routes, Route, HashRouter } from 'react-router-dom'
-import Layout from './components/Layout'
-import Home from './pages/Home'
-import About from './pages/About'
-import HowItWorks from './pages/HowItWorks'
-import Pricing from './pages/Pricing'
-import Contact from './pages/Contact'
-import TryDemo from './pages/TryDemo'
+import { Routes, Route, HashRouter } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import HowItWorks from "./pages/HowItWorks";
+import Pricing from "./pages/Pricing";
+import Contact from "./pages/Contact";
+import TryDemo from "./pages/TryDemo";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         </Route>
       </Routes>
     </HashRouter>
-  )
+  );
 }
 
-export default App
+export default App;

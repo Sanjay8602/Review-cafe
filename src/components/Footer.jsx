@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { companyInfo } from "../data/teamData";
 
 const footerLinks = {
   Product: [
@@ -8,6 +9,7 @@ const footerLinks = {
   ],
   Company: [
     { to: "/about", label: "About Us" },
+    { to: "/team", label: "Team" },
     { to: "/contact", label: "Contact" },
   ],
 };
@@ -32,6 +34,24 @@ export default function Footer() {
             <p className="mt-3 text-sm text-gray-400 max-w-xs">
               Get Google reviews in 10 seconds. Built for cafés and restaurants.
             </p>
+            {/* Company Address */}
+            <div className="mt-6 pt-6 border-t border-gray-800">
+              <p className="text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                Address
+              </p>
+              <p className="mt-2 text-xs text-gray-400 leading-relaxed max-w-xs">
+                {companyInfo.address}
+              </p>
+            </div>
+            {/* Company Email */}
+            <div className="mt-4">
+              <a
+                href={`mailto:${companyInfo.email}`}
+                className="text-xs text-gray-400 hover:text-brand-400 transition-colors"
+              >
+                {companyInfo.email}
+              </a>
+            </div>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
